@@ -12,10 +12,13 @@ function addBook(title, author, pages, finished) {
   library.push(new Book(title, author, pages, finished));
 }
 
-// Display books on page load
-function displayBooks() {
-  const cards = document.querySelector(".cards");
+// Display/remove books
+const cards = document.querySelector(".cards");
 
+function removeBooks() {
+  cards.innerHTML = "";
+}
+function displayBooks() {
   library.forEach((book) => {
     cards.innerHTML += `
       <div class="card">
@@ -30,21 +33,28 @@ function displayBooks() {
 
 // Form
 const newBookButton = document.querySelector("body > div:first-child button");
-const submitBookButton = document.querySelector("form button");
 const closeNewBookButton = document.querySelector("form button:first-of-type");
 const form = document.querySelector("form");
+
 newBookButton.addEventListener("click", () => {
   form.style.visibility = "visible";
-});
-submitBookButton.addEventListener("click", () => {
-  form.style.visibility = "hidden";
 });
 closeNewBookButton.addEventListener("click", () => {
   form.style.visibility = "hidden";
 });
+form.addEventListener("submit", (e) => {
+  const textInputs = document.querySelectorAll("form > div > input");
+  const radioInput = document.querySelector('input[name="read"]:checked');
 
-addBook("The Return of the King", "J.R.R Tolkien", 416, true);
+  e.preventDefault();
+  form.style.visibility = "hidden";
 
-displayBooks();
+  let array = [];
+  textInputs.forEach((item) => {
+    array.push(item.value);
+  });
+  addBook(array[0], array[1], array[2], radioInput.value);
 
-console.log(Boolean(""));
+  removeBooks();
+  displayBooks();
+});
