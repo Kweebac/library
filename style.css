@@ -37,4 +37,9 @@ body > div:first-child {
   background-color: #2b2d31;
   border-radius: 12px;
   padding: 1rem;
+  color: lightgray;
+
+  display: grid;
+  align-content: start;
+  justify-content: center;
 }
