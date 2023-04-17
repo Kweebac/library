@@ -42,4 +42,5 @@ body > div:first-child {
   display: grid;
   align-content: start;
   justify-content: center;
+  gap: 0.3rem;
 }
