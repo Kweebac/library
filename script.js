@@ -14,23 +14,15 @@ function addBook(title, author, pages, finished) {
 function displayBooks() {
   library.forEach((book) => {
     const cards = document.querySelector(".cards");
-    const newDiv = document.createElement("div");
-    const newDivInner = document.createElement("div");
-    const newDivInner2 = document.createElement("div");
-    const newDivInner3 = document.createElement("div");
-    const newDivInner4 = document.createElement("div");
 
-    newDiv.classList.add("card");
-    newDivInner.textContent = `Title: ${book.title}`;
-    newDivInner2.textContent = `Author: ${book.author}`;
-    newDivInner3.textContent = `Pages: ${book.pages}`;
-    newDivInner4.textContent = `Read? ${book.finished ? "Yes" : "No"}`;
-    newDiv.appendChild(newDivInner);
-    newDiv.appendChild(newDivInner2);
-    newDiv.appendChild(newDivInner3);
-    newDiv.appendChild(newDivInner4);
-
-    cards.appendChild(newDiv);
+    cards.innerHTML += `
+      <div class="card">
+        <div>Title: ${book.title}</div>
+        <div>Author: ${book.author}</div>
+        <div>Pages: ${book.pages}</div>
+        <div>Read: ${book.finished ? "Yes" : "No"}</div>
+      </div>
+    `;
   });
 }
 
