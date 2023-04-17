@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   display: grid;
   justify-content: center;
   background-color: wheat;
 }
 
+/* HEADER */
 body > div:first-child {
   height: 4rem;
 
@@ -34,6 +34,7 @@ body > div:first-child button {
   cursor: pointer;
 }
 
+/* BODY */
 .cards {
   min-height: calc(100vh - 4rem);
   width: 80vw;
@@ -46,7 +47,6 @@ body > div:first-child button {
   grid-auto-rows: 300px;
   gap: 1rem;
 }
-
 .card {
   background-color: #2b2d31;
   border-radius: 12px;
@@ -57,4 +57,54 @@ body > div:first-child button {
   align-content: start;
   justify-content: center;
   gap: 0.3rem;
+}
+
+/* FORM */
+form {
+  justify-self: center;
+  position: absolute;
+  top: 5rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+
+  display: grid;
+  gap: 1rem;
+
+  /* change with JS */
+  visibility: hidden;
+}
+form > div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 3.5rem 1fr;
+  justify-items: end;
+  gap: 0.5rem;
+}
+form > div > input {
+  width: 15rem;
+}
+#title {
+  width: 13.5rem;
+  justify-self: start;
+}
+form button:last-of-type {
+  justify-self: center;
+  margin-top: 2.5rem;
+  height: 3rem;
+  width: 80%;
+  font-size: 1.5rem;
+  background-color: skyblue;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form button:first-of-type {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
 }

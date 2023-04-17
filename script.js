@@ -28,14 +28,23 @@ function displayBooks() {
   });
 }
 
-// Add new book with button
+// Form
 const newBookButton = document.querySelector("body > div:first-child button");
-newBookButton.addEventListener("click", () => {});
+const submitBookButton = document.querySelector("form button");
+const closeNewBookButton = document.querySelector("form button:first-of-type");
+const form = document.querySelector("form");
+newBookButton.addEventListener("click", () => {
+  form.style.visibility = "visible";
+});
+submitBookButton.addEventListener("click", () => {
+  form.style.visibility = "hidden";
+});
+closeNewBookButton.addEventListener("click", () => {
+  form.style.visibility = "hidden";
+});
 
 addBook("The Return of the King", "J.R.R Tolkien", 416, true);
-addBook("Book1", "Rando", 2123, true);
-addBook("Book2", "Rando", 32, false);
-addBook("Book3", "Rando", 124, false);
-addBook("Book4", "Rando", 555);
 
 displayBooks();
+
+console.log(Boolean(""));
