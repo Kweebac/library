@@ -55,13 +55,16 @@ body > div:first-child button {
 
   display: grid;
   align-content: start;
-  justify-content: center;
+  justify-items: center;
   gap: 0.3rem;
 }
-.card button {
+.card button:first-of-type {
   background-color: inherit;
   color: rgb(227, 63, 63);
   border: none;
+  cursor: pointer;
+}
+.card button:last-of-type {
   cursor: pointer;
 }
 

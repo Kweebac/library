@@ -27,15 +27,34 @@ function displayBooks() {
         <div>Pages: ${library[i].pages}</div>
         <div>Read: ${library[i].finished ? "Yes" : "No"}</div>
         <button data-index="${i}">✖</button>
+        <button data-index="${i}">Change read value</button>
       </div>
     `;
   }
-  const deleteBookButtons = document.querySelectorAll(".card button");
+  const deleteBookButtons = document.querySelectorAll(
+    ".card button:first-of-type"
+  );
+  const changeReadButtons = document.querySelectorAll(
+    ".card button:last-of-type"
+  );
   deleteBookButtons.forEach((button) => {
     button.addEventListener("click", () => {
       for (let i = 0; i < library.length; i++) {
-        if (button.getAttribute("data-index") == i) {
+        if (+button.getAttribute("data-index") === i) {
           library.splice(i, 1);
+          removeBooks();
+          displayBooks();
+        }
+      }
+    });
+  });
+  changeReadButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      for (let i = 0; i < library.length; i++) {
+        if (+button.getAttribute("data-index") === i) {
+          library[i].finished
+            ? (library[i].finished = false)
+            : (library[i].finished = true);
           removeBooks();
           displayBooks();
         }
