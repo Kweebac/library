@@ -1,3 +1,4 @@
+// Storing the books
 let library = [];
 
 function Book(title, author, pages, finished) {
@@ -11,10 +12,11 @@ function addBook(title, author, pages, finished) {
   library.push(new Book(title, author, pages, finished));
 }
 
+// Display books on page load
 function displayBooks() {
-  library.forEach((book) => {
-    const cards = document.querySelector(".cards");
+  const cards = document.querySelector(".cards");
 
+  library.forEach((book) => {
     cards.innerHTML += `
       <div class="card">
         <div>Title: ${book.title}</div>
@@ -25,6 +27,10 @@ function displayBooks() {
     `;
   });
 }
+
+// Add new book with button
+const newBookButton = document.querySelector("body > div:first-child button");
+newBookButton.addEventListener("click", () => {});
 
 addBook("The Return of the King", "J.R.R Tolkien", 416, true);
 addBook("Book1", "Rando", 2123, true);

@@ -10,14 +10,28 @@ body {
 
 body > div:first-child {
   height: 4rem;
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 1rem;
+}
+body > div:first-child > div {
   font-size: 2rem;
   font-weight: bold;
   font-family: Roboto;
-  letter-spacing: 1.1px;
 
-  display: grid;
-  align-items: center;
-  justify-items: center;
+  justify-self: end;
+}
+body > div:first-child button {
+  justify-self: start;
+
+  width: 7rem;
+  height: 2rem;
+  background-color: lightgreen;
+  border: 1px solid #2b2d31;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .cards {
