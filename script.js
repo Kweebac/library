@@ -19,15 +19,28 @@ function removeBooks() {
   cards.innerHTML = "";
 }
 function displayBooks() {
-  library.forEach((book) => {
+  for (let i = 0; i < library.length; i++) {
     cards.innerHTML += `
       <div class="card">
-        <div>Title: ${book.title}</div>
-        <div>Author: ${book.author}</div>
-        <div>Pages: ${book.pages}</div>
-        <div>Read: ${book.finished ? "Yes" : "No"}</div>
+        <div>Title: ${library[i].title}</div>
+        <div>Author: ${library[i].author}</div>
+        <div>Pages: ${library[i].pages}</div>
+        <div>Read: ${library[i].finished ? "Yes" : "No"}</div>
+        <button data-index="${i}">✖</button>
       </div>
     `;
+  }
+  const deleteBookButtons = document.querySelectorAll(".card button");
+  deleteBookButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      for (let i = 0; i < library.length; i++) {
+        if (button.getAttribute("data-index") == i) {
+          library.splice(i, 1);
+          removeBooks();
+          displayBooks();
+        }
+      }
+    });
   });
 }
 

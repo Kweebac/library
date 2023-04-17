@@ -58,6 +58,12 @@ body > div:first-child button {
   justify-content: center;
   gap: 0.3rem;
 }
+.card button {
+  background-color: inherit;
+  color: rgb(227, 63, 63);
+  border: none;
+  cursor: pointer;
+}
 
 /* FORM */
 form {
